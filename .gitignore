@@ -12,3 +12,17 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+node_modules
+
+# Logs
+npm-debug.log
+logs
+*.log
+
+# Runtime Data
+pids
+*.pid
+*.seed
+
+.extra

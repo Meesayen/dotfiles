@@ -1,5 +1,5 @@
 # Make vim the default editor.
-export EDITOR='vim';
+export EDITOR='atom';
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
@@ -16,6 +16,7 @@ export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
@@ -26,3 +27,8 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto";
+
+export JAVA_HOME=$(/usr/libexec/java_home)
