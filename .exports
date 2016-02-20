@@ -1,4 +1,4 @@
-# Make vim the default editor.
+# Make atom the default editor.
 export EDITOR='atom';
 
 # Enable persistent REPL history for `node`.

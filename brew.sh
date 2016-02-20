@@ -8,6 +8,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -31,6 +34,9 @@ brew install gnu-sed --with-default-names
 brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
+
+# Better git diff pager
+brew install diff-so-fancy
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -89,7 +95,7 @@ brew install ack
 # brew install imagemagick --with-webp
 # brew install lua
 # brew install lynx
-# brew install p7zip
+brew install p7zip
 # brew install pigz
 # brew install pv
 # brew install rename
