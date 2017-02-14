@@ -1,6 +1,6 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
+	l = "!git --no-pager log --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit"
 
 	# View complete history graph
 	lg = log --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -33,6 +33,14 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+
+	# Get the current branch name (not so useful in itself, but used in
+	# other aliases)
+	bname = "!git rev-parse --abbrev-ref HEAD"
+
+	# Push the current branch to the remote "origin", and set it to track
+	# the upstream branch
+	pb = "!git push -u origin $(git bname)"
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
@@ -82,8 +90,9 @@
 	}; f"
 
 [pager]
-	diff = diff-so-fancy | less -R
-	show = diff-so-fancy | less -R
+	log = less
+	diff = diff-so-fancy | less -RFX
+	show = diff-so-fancy | less -RFX
 
 [apply]
 	# Detect whitespace errors when applying a patch
