@@ -11,13 +11,4 @@ if ! grep '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-# Install latest nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
-sh .osx;
-
 echo "\n\nDone. Note that some of these changes require a logout/restart to take effect."
-echo "Remember to:\n"
-echo "  nvm install 5"
-echo "  nvm alias default 5"
-echo "  npm i -g npm"
