@@ -10,6 +10,7 @@ function doIt() {
 		--exclude "sync.sh" \
 		--exclude "setup.sh" \
 		--exclude "setup-atom.sh" \
+		--exclude "setup-node.sh" \
 		--exclude "brew.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
