@@ -10,6 +10,6 @@ nvm use 7
 npm install now
 npm install np
 npm install npm
-npm install pure-prompt
+npm install impure-prompt
 npm install speed-test
 npm install vue-cli

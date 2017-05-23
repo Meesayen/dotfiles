@@ -102,7 +102,8 @@ source $HOME/.functions
 source $HOME/.extra
 
 autoload -U promptinit; promptinit
-prompt pure
+# prompt pure
+prompt impure
 
 # fpath=(/usr/local/share/zsh-completions $fpath)
 #
