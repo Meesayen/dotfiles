@@ -1,10 +1,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -25,10 +25,20 @@ module.exports = {
     borderColor: 'yellow',
 
     // custom css to embed in the main window
-    css: '',
+    css: /* @css */`
+      /* Disabling annoying triangle */
+      .tab_textActive .tab_textInner::before {
+        display: none;
+      }
+    `,
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: /* @css */`
+      /* Enabling font ligatures */
+      x-screen x-row {
+        font-variant-ligatures: initial;
+      }
+    `,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -77,6 +87,9 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
     hyperTabs: {
+      tabIconsColored: true,
+      border: true,
+      trafficButtons: true,
       activityColor: 'salmon'
     }
   },
@@ -88,7 +101,12 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-snazzy',
+    'an-old-hype',
+    // Other nice themes
+    // 'hypersixteen',
+    // 'hyper-chesterish',
+    // 'hyper-snazzy',
+
     'hypercwd',
     'hyperborder',
     "hyper-statusline",
