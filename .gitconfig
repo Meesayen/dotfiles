@@ -18,7 +18,7 @@
 	df = "!git diff --color"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+	p = git pull --recurse-submodules
 
 	# Clone a repository including all submodules
 	cl = clone --recursive
@@ -41,6 +41,9 @@
 	# Push the current branch to the remote "origin", and set it to track
 	# the upstream branch
 	pb = "!git push -u origin $(git bname)"
+
+	# List aliases
+	aliases = config --get-regexp alias
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
@@ -119,6 +122,10 @@
 	# Set default editor to vim
 	editor = vim
 
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
@@ -158,6 +165,7 @@
 	indentHeuristic = true
 
 [diff "bin"]
+
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
@@ -170,10 +178,8 @@
 	log = true
 
 [push]
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 

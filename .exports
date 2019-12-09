@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Make atom the default editor.
-export EDITOR='atom';
+# Make vim the default editor.
+export EDITOR='vim';
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
@@ -29,6 +29,10 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
